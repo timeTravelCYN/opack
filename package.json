@@ -1,18 +1,49 @@
 {
-  "name": "test",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "opackConfig": {
-    "suiteName": "opack-suite-react"
-  },
+  "name": "opack",
+  "version": "0.0.1",
+  "description": "前端脚手架",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "NODE_ENV=development opack dev",
-    "build": "NODE_ENV=production opack build",
-    "init": "opack init",
-    "pub": "NODE_ENV=production opack pub"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "bin": {
+    "opack": "./bin/opack"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bash-color": "0.0.4",
+    "fs-extra": "^9.0.1",
+    "inquirer": "^6.0.0",
+    "moment": "^2.29.1",
+    "shelljs": "^0.8.4",
+    "yargs": "^16.1.1"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/register": "^7.0.0",
+    "@types/react": "^17.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.2.1",
+    "babel-plugin-aliases": "^1.0.1",
+    "babel-plugin-import": "^1.7.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-polyfill": "^6.26.0",
+    "eslint-plugin-import": "^2.22.1",
+    "inquirer": "^6.0.0",
+    "lerna": "^3.22.1",
+    "precommit": "^1.2.2",
+    "cz-emoji-xg": "1.0.3"
+  }
 }
