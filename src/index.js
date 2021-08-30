@@ -8,29 +8,29 @@ const packagePath = path.resolve('./package.json');
 const curProjectPath = process.cwd();
 const suiteJson = require('../suite.json')
 
-const setSuiteName = (value) => {
-  const filepath = packagePath;
-  const config = {
-    name: 'test',
-    version: '1.0.0',
-    description: '',
-    main: 'index.js',
-    opackConfig: {
-      suiteName: value
-    },
-    scripts: {
-      dev: 'NODE_ENV=development opack dev',
-      build: 'NODE_ENV=production opack build',
-      init: 'opack init',
-      pub: 'NODE_ENV=production opack pub'
-    },
-    keywords: [],
-    author: '',
-    license: 'ISC'
-  };
-  fs.writeFileSync(filepath, JSON.stringify(config, null, 2), 'utf8');
-  console.info(color.green(`suite"${value}"配置在 ${filepath} 写入成功`));
-};
+// const setSuiteName = (value) => {
+//   const filepath = packagePath;
+//   const config = {
+//     name: 'test',
+//     version: '1.0.0',
+//     description: '',
+//     main: 'index.js',
+//     opackConfig: {
+//       suiteName: value
+//     },
+//     scripts: {
+//       dev: 'NODE_ENV=development opack dev',
+//       build: 'NODE_ENV=production opack build',
+//       init: 'opack init',
+//       pub: 'NODE_ENV=production opack pub'
+//     },
+//     keywords: [],
+//     author: '',
+//     license: 'ISC'
+//   };
+//   fs.writeFileSync(filepath, JSON.stringify(config, null, 2), 'utf8');
+//   console.info(color.green(`suite"${value}"配置在 ${filepath} 写入成功`));
+// };
 
 const installSuite = (suiteName) => {
   console.log('suiteName:', suiteName);
@@ -130,23 +130,9 @@ const cli = () => {
           selectSuiteName = result.suiteName;
         }
         console.log(`选择 suite:`, selectSuiteName)
-        if (suiteJson[selectSuiteName]) {
-          let id = suiteJson[selectSuiteName].id;
-          setSuiteName(id);
-          installSuite(id);
-        } else {
-          let suite = selectSuiteName;
-          let lastIndex = suite.lastIndexOf('@');
-          if (lastIndex > 0) {
-            let name = suite.substr(0, lastIndex);
-            setSuiteName(name);
-            installSuite(suite);
-          } else {
-            setSuiteName(suite);
-            installSuite(suite);
-          }
-        }
+
         checkSuite().init();
+        installSuite(suite);
       }
     },
     {
