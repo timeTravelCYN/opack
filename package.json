@@ -1,5 +1,5 @@
 {
-  "name": "opack",
+  "name": "opack-cli",
   "version": "0.0.1",
   "description": "前端脚手架",
   "main": "src/index.js",
