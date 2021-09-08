@@ -119,11 +119,17 @@ const cli = () => {
           console.log('已存在 suiteModule，无需初始化')
           return;
         }
+
         const filepath = path.resolve(curProjectPath, './.lock');
         if (isFile(filepath)) {
           console.log('存在 lock 文件，已初始化');
           process.exit(1);
         }
+
+        const npmrc = path.resolve(curProjectPath, './.npmrc');
+        //默认使用淘宝源
+        fs.writeFileSync(npmrc, `registry=https://registry.npm.taobao.org`);
+
         let selectSuiteName = argv.suite || '';
         if(!selectSuiteName){
           const result = await inquire();

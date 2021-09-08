@@ -2,9 +2,5 @@
   "react": {
     "name": "一个通用的react打包工具",
     "id": "opack-suite-react"
-  },
-  "vue": {
-    "name": "一个通用的vue打包工具",
-    "id": "opack-suite-vue"
   }
 }
